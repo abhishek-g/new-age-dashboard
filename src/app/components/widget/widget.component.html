@@ -1,0 +1,78 @@
+<div class="card w-100" style="color: #6F6F8D">
+  <div class="card-body border-bottom">
+    <span class="card-title w-100" style="display: inline-block;" *ngIf="header.title.titleOpts.length === 0">
+      {{header.title.text}}
+      <i class="fa fa-ellipsis-v float-right mt-2" style="cursor: pointer;color:#6F6F8D" aria-hidden="true"
+      (click)="showFilter = !showFilter" *ngIf="header.filter"></i>
+        <div class="card-filter" [ngClass]="{'d-none': !showFilter, 'd-block': showFilter}">
+          <div class="border-bottom" style="padding: 0.5rem;">
+              Data Visualization
+              <ul class="list-group list-group-horizontal">
+                <li style="padding: 0.25rem;height: 30px;font-size: 14px;width:60px;text-align: center;cursor: pointer;" 
+                 class="list-group-item" (click)="changeVisualization(f.value)"
+                *ngFor="let f of header.filterOpts?.charts" [class.active]="f.active">
+                <i class="fa fa-{{f.value}}-chart"></i>
+                </li>
+              </ul>
+          </div>     
+          <div>
+            <span class="d-block ml-3">
+              <strong>Export Graph</strong>
+            </span>              
+              <ul class="list-group list-group-flush">
+                  <li class="list-group-item" style="height: 30px;padding: 0.115rem;text-align: center;border: none;cursor: pointer;"
+                  (click)="exportChartAs('csv')">
+                      <i class="fa fa-circle-thin" aria-hidden="true"></i> Export As CSV</li>
+                  <li class="list-group-item" style="height: 30px;padding: 0.115rem;text-align: center;border: none;cursor: pointer;"
+                  (click)="exportChartAs('pdf')">
+                      <i class="fa fa-circle-thin" aria-hidden="true"></i> Export As PDF</li>
+                  <li class="list-group-item" style="height: 30px;padding: 0.115rem;text-align: center;border: none;cursor: pointer;"
+                  (click)="exportChartAs('png')">
+                      <i class="fa fa-circle-thin" aria-hidden="true"></i> Export As PNG</li>
+                  <li class="list-group-item" style="height: 30px;padding: 0.115rem;text-align: center;border: none;cursor: pointer;"
+                  (click)="exportChartAs('jpg')">
+                      <i class="fa fa-circle-thin" aria-hidden="true"></i> Export As JPG</li>
+              </ul>
+          </div>
+        </div>
+    </span>
+    <span class="w-100" *ngIf="header.title.titleOpts?.length > 0">
+      <select class="form-control">
+        <option *ngFor="let opt of header.title.titleOpts" [value]="opt.value" 
+        [selected]="opt.selected">{{opt.value}}</option>
+      </select>
+    </span>
+    <span class="card-subtitle card-value d-inline-block w-100" *ngIf="header.title.value.text">{{header.title.value.text}} {{header.title.value.unit}}</span>
+    <span class="card-lift d-inline-block w-100" *ngIf="header.title.lift.value"> 
+      <i class="fa" [ngClass]="{'fa-arrow-up': header.title.lift.sign === 'P' , 'fa-arrow-down': header.title.lift.sign === 'N'}"></i>   {{header.title.lift.value}}
+    </span>
+  </div>
+  <div class="card-body" style="height: 340px;">
+    <span class="float-left mr-3" style="height: 40px;" *ngIf="header.compareTo">
+      <select class="form-control" placeholer="Compare To">
+        <option value="" selected>Compare To</option>
+        <option *ngFor="let opt of header.compareToOpts" [value]="opt.value" [selected]="opt.selected">{{opt.value}}</option>
+      </select>
+    </span>
+    <ng-content style="height: 240px;"></ng-content>
+  </div>
+  <div class="card-footer ">
+    <div class="row">
+      <div class="col-3">
+        <div *ngIf="isAverage">
+          Average
+          <ui-switch size="small" [checked]="header.average"></ui-switch>
+        </div>
+      </div>
+      <div class="col-4">
+        <div *ngIf="isGoalTarget">
+          Goal Target
+          <ui-switch size="small" [checked]="header.goalTarget"></ui-switch>
+        </div>
+      </div>
+      <div class="col-5">
+        <span (click)="viewMoreClicked()" style="cursor: pointer;" class="float-right">View More <i class="fa fa-long-arrow-right"></i></span>
+      </div>
+    </div>
+  </div>
+</div>

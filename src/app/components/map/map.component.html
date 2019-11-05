@@ -1,0 +1,5 @@
+<div class="btn-group" style="position: absolute;z-index: 9;right: 0.75rem;">
+    <button class="btn btn-sm" [class.btn-primary]="!drilldown" (click)="toggleDrilldown()"> Countries</button>
+    <button class="btn btn-sm" [class.btn-primary]="drilldown" (click)="toggleDrilldown()"> States</button>
+</div>
+<div id="chart" style="height:100%;width:100%"></div>

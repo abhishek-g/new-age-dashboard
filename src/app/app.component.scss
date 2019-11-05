@@ -1,0 +1,27 @@
+$border-top-radius: 12px;
+
+.mycard-table{
+    border-top-left-radius: $border-top-radius;
+    border-top-right-radius: $border-top-radius;
+
+    .card-body:first-child {
+        border-bottom: 1px solid rgba(0,0,0,.125);
+        background-color: #6F6F8D;
+        color: #fff;
+        border-top-left-radius: $border-top-radius;
+        border-top-right-radius: $border-top-radius;
+    }
+
+    .card-body:nth-child(2){
+        padding: 0;
+
+
+        table thead tr td {
+            text-align: center;
+        }
+
+        table tbody tr td {
+            text-align: center;
+        }
+    }
+}
