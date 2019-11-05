@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   topFiveData = {};
   widget1Opts: Header = {};
   widget2Opts: Header = {};
+  seriesForSimpleLineChart = [];
   constructor(private widgetService: WidgetService, private router: Router) {
     this.widget1Opts = this.widgetService.getWidget1Opts();
     const opts = this.widgetService.getWidget1Opts();
@@ -65,6 +66,15 @@ export class DashboardComponent implements OnInit {
       })
       this.topFiveData = seriesData;
     })
+
+
+    setTimeout( () => {
+      this.seriesForSimpleLineChart = [{
+        name: 'Installation',
+        data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+      }];
+    },2000)
+
   }
 
 

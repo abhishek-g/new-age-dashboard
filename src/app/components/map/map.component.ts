@@ -109,10 +109,16 @@ export class MapComponent implements OnInit, OnChanges {
           y: 60
         }
       }
+    },
+    exporting: {
+      enabled: false
     }
+
   };
   selectConfig = Object.assign( {} , this.mapConfig , {
-
+    exporting: {
+      enabled: false
+    }
   })
   constructor(
     private _http: HttpClient

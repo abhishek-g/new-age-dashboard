@@ -13,6 +13,7 @@ import { ViewMoreComponent } from './components/view-more/view-more.component';
 import { AppRouter } from './app.routing';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
+import { SimpleChartComponent } from './components/simple-chart/simple-chart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { RouterModule } from '@angular/router';
     WidgetComponent,
     ScrollLineChartComponent,
     ViewMoreComponent,
-    DashboardComponent
+    DashboardComponent,
+    SimpleChartComponent
   ],
   imports: [
     BrowserAnimationsModule,

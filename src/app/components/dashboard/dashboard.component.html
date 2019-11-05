@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-    <!-- <div class="row mt-2 mb-2">
+  <!-- <div class="row mt-2 mb-2">
       <div class="col-12">
         <div class="card">
           <div class="card-body row">
@@ -107,7 +107,7 @@
         </div>
       </div>
     </div> -->
-    <!-- <div class="row">
+  <!-- <div class="row">
       <div class="col-sm-8">
         <div class="card mycard-table">
           <div class="card-body">
@@ -299,49 +299,60 @@
         </div>
       </div>
     </div> -->
-    <div class="row mt-3">
-      <div class="col-6">
-        <app-widget name="Widget1" [titleOpts]="widget1Opts.titleOpts" [compareToOpts]="widget1Opts.compareToOpts"
-        isAverage="true" isGoalTarget="true" (onViewMoreClicked)="viewmoreClicked($event)">
-          <app-scroll-line-chart name="test1"></app-scroll-line-chart>
-        </app-widget>
-      </div>
-  
-      <div class="col-6">
-        <app-widget name="Widget2" [titleOpts]="widget2Opts.titleOpts" [compareToOpts]="widget2Opts.compareToOpts" 
-        [filterOpts]="widget2Opts.filterOpts" (onViewMoreClicked)="viewmoreClicked($event)">
-          <app-scroll-line-chart name="test2"></app-scroll-line-chart>
-        </app-widget>
-      </div>
-    </div>
-  
-    <div class="row mt-3">
-      <div class="col-12">
-        <app-widget name="Widget3" [titleOpts]="widget1Opts.titleOpts" (onViewMoreClicked)="viewmoreClicked($event)">
-          <app-scroll-line-chart name="test3"></app-scroll-line-chart>
-        </app-widget>
-      </div>
-    </div>
-  
-    <div class="row mt-3">
-      <div class="col-12">
-        <app-widget name="Widget4" [titleOpts]="widget1Opts.titleOpts" (onViewMoreClicked)="viewmoreClicked($event)">
-          <app-scroll-line-chart name="test4"></app-scroll-line-chart>
-        </app-widget>
-      </div>
-    </div>
-  
-    <div class="row mt-3">
-      <div class="col-6">
-        <app-widget name="Widget5" [titleOpts]="widget1Opts.titleOpts" (onViewMoreClicked)="viewmoreClicked($event)">
-          <app-scroll-line-chart name="test5"></app-scroll-line-chart>
-        </app-widget>
-      </div>
-  
-      <div class="col-6">
-        <app-widget name="Widget6" [titleOpts]="widget1Opts.titleOpts" (onViewMoreClicked)="viewmoreClicked($event)">
-          <app-scroll-line-chart name="test6"></app-scroll-line-chart>
-        </app-widget>
-      </div>
+  <div class="row mt-3">
+    <div class="col-12">
+      <app-widget name="Widget1" [titleOpts]="widget1Opts.titleOpts" [compareToOpts]="widget1Opts.compareToOpts"
+        [filterOpts]="widget1Opts.filterOpts" (onViewMoreClicked)="viewmoreClicked($event)">
+        <app-simple-chart name="test111" [series]="seriesForSimpleLineChart"></app-simple-chart>
+      </app-widget>
     </div>
   </div>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <app-widget name="Widget2" [titleOpts]="widget1Opts.titleOpts" [compareToOpts]="widget2Opts.compareToOpts"
+        [filterOpts]="widget2Opts.filterOpts" (onViewMoreClicked)="viewmoreClicked($event)">
+        <app-simple-chart name="test121" type="column" [series]="seriesForSimpleLineChart"></app-simple-chart>
+      </app-widget>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <app-widget name="Widget3" [titleOpts]="widget1Opts.titleOpts" (onViewMoreClicked)="viewmoreClicked($event)">
+        <div class="row">
+          <div class="col-sm-6" style="height:400px;padding:1%">
+            <app-map [chartOptions]="chartOptions" [data]="mapData" [drillDownData]="mapData2"
+              (drilldownClicked)="drilldownClicked($event)" (regionSelected)="regionSelected($event)"
+              (regionDeSelected)="regionDeSelected($event)"></app-map>
+          </div>
+          <div class="col-sm-6" style="height:400px;padding:1%">
+            <app-scroll-line-chart name="top5" [top5Data]="topFiveData"></app-scroll-line-chart>
+          </div>
+        </div>
+      </app-widget>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <app-widget name="Widget4" [titleOpts]="widget1Opts.titleOpts" (onViewMoreClicked)="viewmoreClicked($event)">
+        <app-scroll-line-chart name="test4"></app-scroll-line-chart>
+      </app-widget>
+    </div>
+  </div>
+
+  <div class="row mt-3 mb-3">
+    <div class="col-6">
+      <app-widget name="Widget5" [titleOpts]="widget1Opts.titleOpts" (onViewMoreClicked)="viewmoreClicked($event)">
+        <app-scroll-line-chart name="test5"></app-scroll-line-chart>
+      </app-widget>
+    </div>
+
+    <div class="col-6">
+      <app-widget name="Widget6" [titleOpts]="widget1Opts.titleOpts" (onViewMoreClicked)="viewmoreClicked($event)">
+        <app-scroll-line-chart name="test6"></app-scroll-line-chart>
+      </app-widget>
+    </div>
+  </div>
+</div>
